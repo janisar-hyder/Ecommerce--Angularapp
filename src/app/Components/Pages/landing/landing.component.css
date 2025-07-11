@@ -1,0 +1,81 @@
+/* Custom animations */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-fade-in.delay-200 {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom gold color */
+.bg-gold-600 {
+  background-color: #b8860b;
+}
+
+.hover\:bg-gold-600:hover {
+  background-color: #b8860b;
+}
+
+.text-gold-600 {
+  color: #b8860b;
+}
+
+.hover\:text-gold-600:hover {
+  color: #b8860b;
+}
+
+.border-gold-600 {
+  border-color: #b8860b;
+}
+
+.focus\:ring-gold-600:focus {
+  --tw-ring-color: #b8860b;
+}
+
+/* Font smoothing */
+.font-sans {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero section height adjustment for mobile */
+@media (max-width: 640px) {
+  .h-screen {
+    height: 80vh;
+  }
+}
+
+/* Smooth transitions */
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* SEO improvements (invisible to users but helps search engines) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
