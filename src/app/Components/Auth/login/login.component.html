@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Your E-commerce Site</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        
+        /* Style for the background image panel */
+        .bg-image-panel {
+            background-image: url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1740&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Keyframe animation for the main card entrance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Custom underline animation for links */
+        .link-underline {
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px; /* Position the line slightly below the text */
+            left: 0;
+            background-color: #6366f1; /* indigo-500 */
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <!-- Added animate-fade-in class for the entrance animation -->
+        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl overflow-hidden max-w-4xl w-full animate-fade-in">
+            
+            <!-- Left Side: Brand Information & Image -->
+            <div class="hidden md:flex w-1/2 bg-image-panel p-12 text-white flex-col justify-between relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-transparent opacity-50 rounded-l-2xl"></div>
+                <div class="relative z-10">
+                    <h1 class="text-4xl font-bold mb-3 tracking-tight">YourBrand</h1>
+                    <p class="text-lg font-light">The future of online shopping is here.</p>
+                </div>
+                <div class="relative z-10">
+                    <p class="text-sm font-light italic">"Style is a way to say who you are without having to speak."</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Login Form -->
+            <div class="w-full md:w-1/2 p-8 sm:p-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Sign In</h2>
+                <p class="text-gray-600 mb-8">Welcome back! Please sign in to your account.</p>
+
+                <form action="#" method="POST">
+                    <!-- Email Input with enhanced focus -->
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" name="email" id="email" class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-300 ease-in-out" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with enhanced focus -->
+                    <div class="mb-6">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                         <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                               <i class="fa-solid fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" name="password" id="password" class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-300 ease-in-out" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password with animated link -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 link-underline">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Button with enhanced hover effect -->
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/30">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Divider -->
+                <div class="mt-8 relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                    </div>
+                </div>
+
+                <!-- Social Login Buttons with hover animation -->
+                <div class="mt-6 flex justify-center gap-4">
+                    <a href="#" class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-white border border-gray-300 text-gray-500 hover:bg-gray-50 hover:text-indigo-600 hover:border-indigo-300 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        <i class="fab fa-google text-lg"></i>
+                    </a>
+                     <a href="#" class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-white border border-gray-300 text-gray-500 hover:bg-gray-50 hover:text-gray-800 hover:border-gray-400 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-white border border-gray-300 text-gray-500 hover:bg-gray-50 hover:text-blue-600 hover:border-blue-300 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Sign Up Link with animated link -->
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    Don't have an account?
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 link-underline">
+                        Sign up
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
